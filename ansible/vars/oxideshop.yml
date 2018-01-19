@@ -23,16 +23,15 @@ php:
   zendguard:
     install: false
   packages:
-    - php5.6-cli
-    - php5.6-intl
-    - php5.6-mcrypt
-    - php5.6-mysql
-    - php5.6-gd
-    - php5.6-curl
-    - php5.6-xml
-    - php5.6-bcmath
-    - php5.6-mbstring
-    - php5.6-soap
+    - php7.1-cli
+    - php7.1-intl
+    - php7.1-mysql
+    - php7.1-gd
+    - php7.1-curl
+    - php7.1-xml
+    - php7.1-bcmath
+    - php7.1-mbstring
+    - php7.1-soap
   composer:
     prestissimo:
       install: true
