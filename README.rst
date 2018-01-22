@@ -168,46 +168,18 @@ Be aware that NFS also has it's own limitations:
 Change PHP version
 ^^^^^^^^^^^^^^^^^^
 
-By default latest PHP version found in ubuntu repository is installed.
+By default 5.6 PHP version found in given PPA repository is installed.
 
-When PHP version is specified, `PHPBrew <https://github.com/phpbrew/phpbrew>`_ is installed and used for switching between versions.
-Requested version will be either built on the fly or downloaded from assets [#assets_repository]_ repository.
+In order to switch to different PHP version one must update configuration as following:
 
 .. code:: yaml
 
   ---
   php:
-    version: 5.3
+    version: 7.1
 
-Keep in mind that by default this setting only affects the CLI interface of PHP,
-in order to change the PHP version for Apache, please apply the following
-additional commands:
+Available choices: ``5.6``, ``7.0`` and ``7.1``
 
-.. code:: bash
-
-  sudo cp /etc/apache2/mods-available/php5.6.conf /etc/apache2/mods-available/php5.conf
-  sudo a2dismod php5.6
-  sudo a2enmod php5
-  phpswitch 5.3 # or 5.4, 5.5, 5.6, 7.0, 7.1
-
-To disable downloading of cached versions from assets repository, set ``cache_repository`` to empty value.
-Alternatively it is possible to build your own PHP packages and place them into any svn repository.
-
-Only when php version is specified, PHPBrew will be installed so those commands became available inside VM:
-
-* ``phpbrew list`` - lists installed PHP versions
-* ``phpbrew update --old`` - Updates PHP versions list with old php versions
-* ``phpbrew known`` - lists available PHP versions
-* ``phpbuild [version]`` - builds PHP version
-* ``phpswitch [version]`` - switch PHP version
-* ``phpswitch off`` - switch back to default PHP version
-
-When versions is downloaded from assets repository, phpbrew will not have its source code and therefore will not be able to build php extensions.
-To download PHP source run this command with full php version specified:
-
-.. code:: bash
-
-  phpbrew download [phpversion] && tar jxf ~/.phpbrew/distfiles/php-[phpversion].tar.bz2 -C ~/.phpbrew/build/
 
 Change MySQL version
 ^^^^^^^^^^^^^^^^^^^^
